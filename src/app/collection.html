@@ -1,0 +1,52 @@
+<main>
+  <section class="collection-banner" aria-labelledby="collection-title">
+    <div class="banner-content">
+      <p class="eyebrow"><span aria-hidden="true"></span> Expresa tu estilo</p>
+      <div class="title-row"><h1 id="collection-title">THE<span>COLLECTION.</span></h1><p class="signature">Esencia urbana / Sneakzone</p></div>
+      <p class="banner-description">Explora. Elige. Destaca. El siguiente paso comienza aquí.</p>
+    </div>
+  </section>
+
+  <div class="catalog-layout">
+    <aside class="filters" aria-labelledby="filters-title">
+      <div class="filters-heading"><h2 id="filters-title">Filtros</h2><button type="button" (click)="clearFilters()">Limpiar ↗</button></div>
+      <form (ngSubmit)="search()">
+        <div class="filter-group">
+          <label for="buscar">Buscar</label>
+          <input id="buscar" name="query" type="search" [(ngModel)]="query" placeholder="Nombre o modelo...">
+          <button class="search-button" type="submit">Buscar <span aria-hidden="true">⟶</span></button>
+        </div>
+        <div class="filter-group">
+          <label for="marca">Marca</label>
+          <select id="marca" name="brand" [(ngModel)]="brand">
+            <option value="">Todas las marcas</option>
+            <option value="nike">Nike</option><option value="adidas">Adidas</option><option value="puma">Puma</option><option value="new-balance">New Balance</option><option value="converse">Converse</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="precio">Precio máximo</label>
+          <output for="precio">{{ maxPrice === 0 ? 'Sin límite' : 'Bs ' + maxPrice }}</output>
+          <input id="precio" name="maxPrice" type="range" min="0" max="2500" step="50" [(ngModel)]="maxPrice" [attr.aria-valuetext]="maxPrice === 0 ? 'Sin límite' : maxPrice + ' bolivianos'">
+        </div>
+        <label class="stock-option"><input name="inStock" type="checkbox" [(ngModel)]="inStock"> Solo con stock</label>
+      </form>
+      <p class="filter-note">Encuentra tu próxima<br> obsesión</p>
+      <span class="filter-spark" aria-hidden="true">✳</span>
+    </aside>
+
+    <section class="results" aria-label="Resultados de la colección">
+      <div class="results-toolbar">
+        <p><strong>0</strong> productos</p>
+        <div class="sort"><label for="orden">Ordenar por</label><select id="orden" [(ngModel)]="sort"><option value="featured">Destacados</option><option value="newest">Más recientes</option><option value="price-asc">Menor precio</option><option value="price-desc">Mayor precio</option></select></div>
+      </div>
+      <div class="empty-state" role="status" aria-live="polite">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 15h28l-3 27H13l-3-27Z"/><path d="M18 18V11a6 6 0 0 1 12 0v7"/><path d="m20 28 8 8m0-8-8 8"/></svg>
+        <h2>No hay productos disponibles</h2>
+        <p>{{ searched() || brand || maxPrice || inStock ? 'No encontramos zapatillas con estos filtros. Prueba con otra búsqueda.' : 'Estamos preparando tu próximo par favorito. Vuelve pronto para descubrir la colección.' }}</p>
+        @if (searched() || query || brand || maxPrice || inStock) {
+          <button type="button" (click)="clearFilters()">Limpiar filtros <span aria-hidden="true">↗</span></button>
+        }
+      </div>
+    </section>
+  </div>
+</main>

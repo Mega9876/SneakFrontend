@@ -1,6 +1,9 @@
-:host { display: block; min-height: 100svh; border-block: 14px solid #141911; }
+:host { display: block; min-height: 100svh; }
+.announcement { min-height: 39px; background: #141911; color: #fff; display: flex; justify-content: center; align-items: center; gap: 22px; text-transform: uppercase; letter-spacing: 2px; font-size: 10px; font-weight: 750; padding: 8px 20px; text-align: center; }
+.announcement span { color: #d8fb63; }
+.spark { font-size: 20px; }
 .header { height: 100px; padding-inline: 5.1%; display: flex; align-items: center; justify-content: space-between; background: #fff; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 950; letter-spacing: -1.5px; text-decoration: none; }
+.brand { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 950; letter-spacing: -1.5px; text-decoration: none; width: fit-content; }
 .brand-accent { color: #88aa1c; }
 .brand-icon { position: relative; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 10px; background: #141911; color: #d4fc68; font-size: 32px; transform: rotate(-9deg); }
 .brand-icon span { position: absolute; top: -9px; right: -7px; font-size: 19px; color: #8bb725; }
@@ -12,45 +15,26 @@
 .icon-button { position: relative; width: 50px; height: 50px; border: 1px solid #e9eae4; border-radius: 50%; background: white; display: grid; place-items: center; }
 .icon-button svg { width: 24px; stroke: currentColor; stroke-width: 1.8; }
 .bag-count { position: absolute; right: -7px; top: -8px; border: 1px solid #141911; background: #d9fa7a; border-radius: 50%; width: 22px; height: 22px; font-size: 12px; display: grid; place-items: center; }
-.hero { display: grid; grid-template-columns: 46% 54%; min-height: calc(100svh - 128px); }
-.intro { background: #efeee6; padding: clamp(65px, 7.8vh, 110px) 9% 45px 11.1%; display: flex; flex-direction: column; align-items: flex-start; }
-.eyebrow { display: flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 750; letter-spacing: 2px; text-transform: uppercase; color: #616c5e; margin: 0 0 34px; }
-.eyebrow > span { width: 33px; height: 1px; background: #62704e; }
-h1 { font-family: Arial, Helvetica, sans-serif; font-size: clamp(80px, 7.7vw, 155px); font-weight: 1000; letter-spacing: -.095em; line-height: .81; margin: 0 0 32px; }
-h1 > span { display: block; }
-.green { color: #8ba51a; }
-.dot { color: #a0bc2b; }
-.description { color: #727b71; font-size: 15px; line-height: 1.9; margin: 0; }
-.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 42px; }
-.primary-link { background: #141911; color: white; text-transform: uppercase; padding: 21px 28px; border-radius: 2px; display: flex; gap: 30px; align-items: center; text-decoration: none; font-size: 12px; font-weight: 850; }
-.primary-link span { font-size: 21px; font-weight: 400; line-height: 1; }
-.secondary-link { text-decoration: none; border-bottom: 1px solid #c8ccbd; padding-block: 12px; font-size: 12px; font-weight: 700; }
-.secondary-link span { margin-left: 12px; font-size: 19px; }
-.attitude { display: flex; align-items: center; gap: 22px; margin-top: auto; padding-top: 60px; }
-.community { display: flex; padding-right: 2px; }
-.community span { display: grid; place-items: center; width: 33px; height: 33px; border-radius: 50%; background: #b0d13a; font-size: 10px; font-weight: 700; border: 1px solid #efeee6; }
-.community span + span { margin-left: -7px; background: #d0d7bb; }
-.community span:last-child { background: #dddfd3; font-size: 15px; }
-.attitude strong { font-size: 13px; }
-.attitude p { margin: 5px 0 0; font-size: 11px; color: #87907e; }
-.showcase { position: relative; isolation: isolate; overflow: hidden; min-height: 700px; background: #c7de80; }
-.orbit, .disc { position: absolute; border-radius: 50%; z-index: -1; }
-.orbit { border: 1px solid #e1ecb2; width: 112%; aspect-ratio: 1; left: -6%; top: -15%; }
-.orbit-inner { width: 89%; left: 5%; top: 2%; }
-.disc { width: 76%; aspect-ratio: 1; left: 15%; top: 12%; background: #d6e89d; }
-.background-word { position: absolute; z-index: -1; top: 34%; left: -6%; font-size: clamp(150px, 18vw, 360px); letter-spacing: -.09em; font-weight: 950; color: #e4efb6; transform: rotate(-9deg); }
-.edition { position: absolute; right: 28px; top: 42px; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 3px; font-size: 10px; font-weight: 700; color: #4c602d; }
-.sneaker { position: absolute; width: 98%; left: 3%; top: 27%; overflow: visible; }
-.product-caption { position: absolute; left: 8%; bottom: 6%; }
-.product-caption p { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin: 0 0 9px; }
-.product-caption h2 { font-size: 23px; letter-spacing: -1px; line-height: 1.2; margin: 0 0 8px; font-weight: 800; }
-.product-caption > span { font-size: 12px; }
-.slide-number { position: absolute; right: 6%; bottom: 6%; font-size: 12px; font-weight: 800; }
-a { transition: color .18s, background .18s; }
-.primary-link:hover { background: #384722; }
-.secondary-link:hover, .navigation a:hover { color: #87a31c; }
+.footer { background: #141b13; color: #a4ad9c; padding: 80px 6% 90px; display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 50px; font-size: 14px; line-height: 1.8; }
+.footer .brand { color: white; }
+.footer .brand-icon { background: #d8f15e; color: #141911; }
+.footer h2 { text-transform: uppercase; color: #d8fb63; font-size: 11px; letter-spacing: 1.7px; margin: 0 0 22px; font-weight: 700; }
+.footer p { margin: 10px 0 18px; }
+.footer small { color: #73816b; font-size: 11px; }
+.footer-links { display: flex; flex-direction: column; align-items: flex-start; }
+.footer-links a { text-decoration: none; }
+a:hover { color: #88aa1c; }
 :is(a, button):focus-visible { outline: 3px solid #87a31c; outline-offset: 5px; }
-@media (min-width: 1700px) { .intro { padding-top: 100px; padding-bottom: 55px; } .hero-actions { margin-top: 48px; } .description { font-size: 16px; } }
-@media (max-width: 1100px) { .navigation { gap: 25px; margin-left: 0; } .intro { padding-left: 9%; padding-right: 6%; } h1 { font-size: 8vw; } .hero-actions { gap: 12px; } .primary-link { padding: 19px; gap: 18px; } .desktop-break { display: none; } .showcase { min-height: 680px; } .sneaker { top: 33%; } }
-@media (max-width: 760px) { :host { border-block-width: 8px; } .header { height: 80px; padding-inline: 6%; flex-wrap: wrap; gap: 0; } .brand { font-size: 21px; gap: 9px; } .brand-icon { width: 35px; height: 35px; font-size: 27px; } .header-actions { gap: 10px; } .icon-button { width: 39px; height: 39px; } .navigation { order: 3; width: 100%; justify-content: center; gap: 34px; min-height: 44px; font-size: 12px; background: white; } .header { height: 118px; padding-top: 10px; } .hero { grid-template-columns: 1fr; } .intro { padding: 48px 7% 35px; } .eyebrow { font-size: 9px; margin-bottom: 30px; letter-spacing: 1.5px; } h1 { font-size: clamp(86px, 19vw, 140px); margin-bottom: 27px; } .description { font-size: 14px; max-width: 370px; } .hero-actions { margin-top: 27px; gap: 20px; } .primary-link { font-size: 11px; } .attitude { padding-top: 38px; } .showcase { min-height: 520px; } .sneaker { top: 23%; } .background-word { font-size: 35vw; } .edition { right: 18px; top: 28px; } .product-caption h2 { font-size: 22px; } }
-@media (prefers-reduced-motion: reduce) { a { transition: none; } }
+@media (max-width: 1100px) { .navigation { gap: 25px; margin-left: 0; } }
+@media (max-width: 760px) {
+  .announcement { font-size: 8px; letter-spacing: 1px; gap: 10px; }
+  .header { height: 118px; padding: 10px 6% 0; flex-wrap: wrap; gap: 0; }
+  .brand { font-size: 21px; gap: 9px; }
+  .brand-icon { width: 35px; height: 35px; font-size: 27px; }
+  .header-actions { gap: 10px; }
+  .icon-button { width: 39px; height: 39px; }
+  .navigation { order: 3; width: 100%; justify-content: center; gap: 34px; min-height: 44px; font-size: 12px; }
+  .footer { padding: 50px 7%; grid-template-columns: 1fr 1fr; gap: 35px; font-size: 13px; }
+  .footer > :first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 420px) { .footer { grid-template-columns: 1fr; } }

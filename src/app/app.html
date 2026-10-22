@@ -1,77 +1,30 @@
-<header class="header" id="inicio">
-  <a class="brand" href="#inicio" aria-label="Sneakzone, inicio">
+<div class="announcement"><span aria-hidden="true">●</span> El estilo comienza en tus pies <span class="spark" aria-hidden="true">✳</span> Descubre tu próximo par</div>
+<header class="header">
+  <a class="brand" routerLink="/" aria-label="Sneakzone, inicio">
     <span class="brand-icon" aria-hidden="true">S<span>✳</span></span>
     <span>SNEAK<span class="brand-accent">ZONE</span></span>
   </a>
-
   <nav class="navigation" aria-label="Navegación principal">
-    <a class="active" href="#inicio" aria-current="page">Inicio</a>
-    <a href="#coleccion">Colección</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Inicio</a>
+    <a routerLink="/coleccion" routerLinkActive="active" ariaCurrentWhenActive="page">Colección</a>
     <span>Administración</span>
   </nav>
-
   <div class="header-actions">
-    <button class="icon-button" type="button" aria-label="Buscar">
+    <a class="icon-button" routerLink="/coleccion" fragment="buscar" aria-label="Buscar en la colección">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7"/><path d="m16 16 5 5"/></svg>
-    </button>
-    <button class="icon-button bag" type="button" aria-label="Bolsa de compras, 0 artículos">
+    </a>
+    <button class="icon-button" type="button" aria-label="Bolsa de compras, 0 artículos">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 8h14l-1.4 13H6.4L5 8Z"/><path d="M9 9V5a3 3 0 0 1 6 0v4"/></svg>
       <span class="bag-count">0</span>
     </button>
   </div>
 </header>
-
-<main class="hero">
-  <section class="intro" aria-labelledby="hero-title">
-    <p class="eyebrow"><span></span> La nueva generación de estilo</p>
-    <h1 id="hero-title"><span>MOVE</span><span class="green">YOUR</span><span>WORLD<span class="dot">.</span></span></h1>
-    <p class="description">Tu estilo no tiene límites. Encuentra esas zapatillas<br class="desktop-break"> que hablan por ti, en cada paso que das.</p>
-    <div class="hero-actions">
-      <a class="primary-link" href="#coleccion">Explorar colección <span aria-hidden="true">↗</span></a>
-      <a class="secondary-link" href="#coleccion">Descubre lo nuevo <span aria-hidden="true">↘</span></a>
-    </div>
-    <div class="attitude">
-      <div class="community" aria-hidden="true"><span>SN</span><span>ZN</span><span>✳</span></div>
-      <div><strong>100% actitud</strong><p>Para llevar tu estilo más lejos</p></div>
-    </div>
-  </section>
-
-  <section class="showcase" id="coleccion" aria-label="Zapatilla destacada de la colección">
-    <div class="orbit orbit-outer" aria-hidden="true"></div>
-    <div class="orbit orbit-inner" aria-hidden="true"></div>
-    <div class="disc" aria-hidden="true"></div>
-    <span class="background-word" aria-hidden="true">SNEAK</span>
-    <p class="edition">Ready to move — 2026</p>
-
-    <svg class="sneaker" viewBox="0 0 1000 550" role="img" aria-labelledby="shoe-title">
-      <title id="shoe-title">Zapatilla urbana blanca con detalles verde lima</title>
-      <defs>
-        <linearGradient id="upper" x1="0" y1="0" x2=".6" y2="1"><stop stop-color="#f4f7ef"/><stop offset="1" stop-color="#dfe6d9"/></linearGradient>
-        <linearGradient id="sole" x1="0" y1="0" x2="0.2" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#c9cdbf"/></linearGradient>
-        <filter id="shoe-shadow" x="-20%" y="-30%" width="150%" height="180%"><feDropShadow dx="14" dy="31" stdDeviation="19" flood-color="#3b4722" flood-opacity=".35"/></filter>
-      </defs>
-      <g transform="rotate(-11 500 290)" filter="url(#shoe-shadow)">
-        <path d="M83 343C128 315 169 283 199 239C220 202 225 93 262 80C290 67 324 113 365 132L506 202C576 218 626 181 687 199C759 220 794 250 879 263L934 271C966 276 973 299 965 327C957 350 937 360 909 368C675 417 378 441 122 427C86 425 64 405 68 376C69 363 74 352 83 343Z" fill="url(#upper)" stroke="#b9c6ae" stroke-width="9" stroke-linejoin="round"/>
-        <path d="M252 92C277 75 319 125 365 143L475 205L354 202L243 171Z" fill="#dce3d7"/>
-        <path d="M234 186C304 245 349 270 412 254C470 240 490 241 544 259" fill="none" stroke="#bdcab6" stroke-width="10"/>
-        <path d="M233 224C335 303 469 335 659 279C567 351 399 380 218 276Z" fill="#d4decd" opacity=".65"/>
-        <path d="M366 223C425 190 507 195 601 226" fill="none" stroke="#b0d650" stroke-width="29" stroke-linecap="round"/>
-        <path d="m385 239 251 28" stroke="#c0cbb9" stroke-width="12"/>
-        <path d="M658 268C696 244 729 238 762 243" fill="none" stroke="#b0d650" stroke-width="12" stroke-linecap="round"/>
-        <path d="M170 286C196 310 201 335 184 360" fill="none" stroke="#cdd7c5" stroke-width="12"/>
-        <g fill="none" stroke="#fcfff7" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m328 159 149 79"/><path d="m354 144 145 78"/><path d="m382 139 146 76"/><path d="m414 150 140 68"/>
-        </g>
-        <g fill="none" stroke="#d3dccb" stroke-width="4" stroke-linecap="round">
-          <path d="m328 159 149 79"/><path d="m354 144 145 78"/><path d="m382 139 146 76"/><path d="m414 150 140 68"/>
-        </g>
-        <path d="M76 385C342 427 714 386 963 304C972 327 958 351 928 364C692 431 373 454 120 429C94 426 75 412 76 385Z" fill="url(#sole)" stroke="#aab9a1" stroke-width="7"/>
-        <path d="M91 397C344 433 712 394 950 320" fill="none" stroke="#fffffa" stroke-width="7"/>
-        <path d="M106 425C358 453 714 413 941 349" fill="none" stroke="#b6c0ac" stroke-width="11" stroke-linecap="round" opacity=".65"/>
-      </g>
-    </svg>
-
-    <div class="product-caption"><p>En el radar</p><h2>Tu próximo favorito</h2><span>La calle es tuya ↗</span></div>
-    <span class="slide-number" aria-label="Imagen 1 de 4">01 / 04</span>
-  </section>
-</main>
+<router-outlet />
+<footer class="footer">
+  <div>
+    <a class="brand" routerLink="/" aria-label="Sneakzone, inicio"><span class="brand-icon" aria-hidden="true">S<span>✳</span></span><span>SNEAK<span class="brand-accent">ZONE</span></span></a>
+    <p>Más que zapatillas. Una forma de moverte.</p>
+  </div>
+  <div class="footer-links"><h2>Explora</h2><a routerLink="/coleccion">Catálogo</a><span>Mi carrito</span><span>Panel de control</span></div>
+  <div><h2>Sneakzone</h2><p>Diseñado para los que nunca dejan de avanzar.</p><small>© 2026 SneakZone · Bolivia</small></div>
+</footer>
