@@ -7,7 +7,7 @@
   <nav class="navigation" aria-label="Navegación principal">
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Inicio</a>
     <a routerLink="/coleccion" routerLinkActive="active" ariaCurrentWhenActive="page">Colección</a>
-    <span>Administración</span>
+    <a routerLink="/administracion">Administración</a>
   </nav>
   <div class="header-actions">
     <a class="icon-button" routerLink="/coleccion" fragment="buscar" aria-label="Buscar en la colección">
@@ -25,6 +25,6 @@
     <a class="brand" routerLink="/" aria-label="Sneakzone, inicio"><span class="brand-icon" aria-hidden="true">S<span>✳</span></span><span>SNEAK<span class="brand-accent">ZONE</span></span></a>
     <p>Más que zapatillas. Una forma de moverte.</p>
   </div>
-  <div class="footer-links"><h2>Explora</h2><a routerLink="/coleccion">Catálogo</a><span>Mi carrito</span><span>Panel de control</span></div>
+  <div class="footer-links"><h2>Explora</h2><a routerLink="/coleccion">Catálogo</a><span>Mi carrito</span><a routerLink="/administracion">Panel de control</a></div>
   <div><h2>Sneakzone</h2><p>Diseñado para los que nunca dejan de avanzar.</p><small>© 2026 SneakZone · Bolivia</small></div>
 </footer>

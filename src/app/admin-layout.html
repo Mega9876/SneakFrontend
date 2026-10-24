@@ -1,0 +1,16 @@
+<div class="admin-layout">
+  <aside class="sidebar">
+    <a class="brand" routerLink="/" aria-label="Sneakzone, volver a la tienda"><span class="brand-icon" aria-hidden="true">S<span>✳</span></span><span>SNEAK<span class="brand-accent">ZONE</span></span></a>
+    <p class="workspace">Workspace / Admin</p>
+    <nav aria-label="Administración">
+      @for (link of links; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: link.exact }" ariaCurrentWhenActive="page"><span aria-hidden="true">{{ link.icon }}</span>{{ link.label }}</a>
+      }
+    </nav>
+    <div class="sidebar-bottom"><p><span aria-hidden="true">●</span> Modo vista · Sin conexión API</p><a routerLink="/">← Volver a la tienda</a></div>
+  </aside>
+  <div class="admin-workspace">
+    <header class="admin-header"><p>Sneakzone <span>/ Panel de control</span></p><span class="avatar" aria-label="Perfil Sneakzone">SZ</span></header>
+    <main><router-outlet /></main>
+  </div>
+</div>

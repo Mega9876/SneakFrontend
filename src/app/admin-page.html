@@ -1,0 +1,52 @@
+<section aria-labelledby="admin-title">
+  <p class="eyebrow">{{ page().eyebrow }}</p>
+  <div class="page-heading">
+    <div><h1 id="admin-title">{{ page().title }}<span>.</span></h1><p class="description">{{ page().description }}</p></div>
+    <button type="button" class="primary-action" [class.outline]="section() === 'pedidos'" (click)="action()">{{ page().action }}</button>
+  </div>
+
+  <div class="notice" role="status"><span aria-hidden="true">◌</span> {{ refreshed() ? 'La vista está actualizada. No hay datos disponibles.' : 'Todavía no hay datos disponibles. Los registros aparecerán aquí cuando se conecte la tienda.' }}</div>
+
+  @if (section() === 'inventario') {
+    <div class="stats">
+      @for (stat of stats; track stat; let last = $last) {
+        <div class="stat"><h2>{{ stat }}</h2><strong [class.low-stock]="last">0</strong></div>
+      }
+    </div>
+  }
+
+  @if (page().table) {
+    <div class="table-card">
+      <div class="table-toolbar">
+        <h2>{{ page().table }} <span class="count">0</span></h2>
+        @switch (section()) {
+          @case ('productos') { <input type="search" aria-label="Buscar productos" placeholder="Buscar productos..." [(ngModel)]="query"> }
+          @case ('clientes') {
+            <form class="client-search" (submit)="$event.preventDefault()"><input type="search" aria-label="Buscar clientes por nombre o correo" placeholder="Nombre o correo..." [(ngModel)]="query" name="query"><button type="submit">Buscar ↗</button></form>
+          }
+          @case ('inventario') { <select aria-label="Filtrar por producto" [(ngModel)]="filter"><option value="">Todos los productos</option></select> }
+          @case ('pedidos') { <select aria-label="Filtrar por estado" [(ngModel)]="filter"><option value="">Todos los estados</option><option value="pendiente">Pendiente</option><option value="completado">Completado</option><option value="cancelado">Cancelado</option></select> }
+        }
+      </div>
+      <div class="table-scroll">
+        <table>
+          <caption class="visually-hidden">{{ page().table }}</caption>
+          <thead><tr>@for (column of page().columns; track column) { <th scope="col">{{ column }}</th> }</tr></thead>
+          <tbody><tr><td class="table-empty" [attr.colspan]="page().columns.length">{{ query ? 'No hay resultados para “' + query + '”.' : page().empty }}</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  }
+  @if (section() === 'pedidos') { <p class="footnote">Las cancelaciones devolverán las unidades correspondientes al inventario cuando se conecte el backend.</p> }
+</section>
+
+<dialog #editor aria-labelledby="editor-title" (click)="$event.target === editor && closeDialog()">
+  <div class="dialog-heading"><h2 id="editor-title">{{ page().formTitle }}</h2><button type="button" aria-label="Cerrar formulario" (click)="closeDialog()">×</button></div>
+  <p class="dialog-note">Vista previa del formulario. El guardado estará disponible al conectar el backend.</p>
+  <form method="dialog">
+    @for (field of page().fields; track field.label) {
+      <label class="form-field">{{ field.label }}<input [type]="field.type" [placeholder]="field.label" [attr.min]="field.type === 'number' ? 0 : null"></label>
+    }
+    <div class="dialog-actions"><button type="submit" class="primary-action">Cerrar</button></div>
+  </form>
+</dialog>

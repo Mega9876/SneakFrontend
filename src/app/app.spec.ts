@@ -27,6 +27,35 @@ describe('App', () => {
     expect(compiled.querySelector('.primary-link')?.getAttribute('href')).toBe('/coleccion');
   });
 
+  it('should navigate through administration and return to the storefront', async () => {
+    const fixture = TestBed.createComponent(App);
+    const router = TestBed.inject(Router);
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    for (const [path, title] of [
+      ['', 'Vista general.'], ['productos', 'Productos.'], ['marcas', 'Marcas.'],
+      ['inventario', 'Inventario.'], ['clientes', 'Clientes.'], ['pedidos', 'Pedidos.']
+    ]) {
+      await router.navigateByUrl('/administracion' + (path ? '/' + path : ''));
+      await fixture.whenStable();
+      expect(compiled.querySelector('h1')?.textContent).toBe(title);
+      expect(compiled.querySelectorAll('.sidebar nav .active').length).toBe(1);
+      expect(compiled.querySelector('.footer')).toBeNull();
+      if (path) {
+        expect(compiled.querySelector('table tbody')?.textContent).toContain('No hay');
+      }
+      if (path === 'inventario') {
+        expect(compiled.querySelectorAll('.stat').length).toBe(3);
+      }
+    }
+
+    compiled.querySelector<HTMLAnchorElement>('.sidebar-bottom a')!.click();
+    await fixture.whenStable();
+    expect(router.url).toBe('/');
+    expect(compiled.querySelector('.sidebar')).toBeNull();
+    expect(compiled.querySelector('.footer')).not.toBeNull();
+  });
+
   it('should open the collection and reset its filters', async () => {
     const fixture = TestBed.createComponent(App);
     const router = TestBed.inject(Router);
